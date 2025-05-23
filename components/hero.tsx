@@ -10,7 +10,7 @@ import HeroBackground from "./3d-hero-background"
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [typedText, setTypedText] = useState("")
-  const fullText = "Full-Stack MERN Developer"
+  const fullText = "Associate Software Engineer"
   const [typingComplete, setTypingComplete] = useState(false)
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Hi, I'm <AnimatedGradientText text="John Doe" />
+              Hi, I'm <AnimatedGradientText text="Sandeep Kumar Chaurasiya" />
             </h1>
           </motion.div>
 
@@ -113,7 +113,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/sandeep140499?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -124,7 +124,7 @@ export default function Hero() {
               <span className="sr-only">GitHub</span>
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -135,7 +135,7 @@ export default function Hero() {
               <span className="sr-only">LinkedIn</span>
             </motion.a>
             <motion.a
-              href="mailto:contact@example.com"
+              href="mailto:sandeep140499kumar@gmail.com"
               className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
@@ -171,7 +171,7 @@ export default function Hero() {
                 y: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
               }}
             >
-              <img src="/placeholder.svg?height=320&width=320" alt="John Doe" className="object-cover w-full h-full" />
+              <img src="/sandeep1-Photoroom.png?height=400&width=400" alt="John Doe" className="object-cover w-full h-full" />
             </motion.div>
 
             <motion.div

@@ -19,13 +19,14 @@ export default function StatsCounter() {
   const stats: Stat[] = [
     {
       icon: <Code className="h-8 w-8" />,
-      value: 15,
+      value: 5,
       label: "Projects Completed",
+      suffix: "+",
       color: "from-blue-500 to-indigo-500",
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
-      value: 3,
+      value: 2,
       label: "Years Experience",
       suffix: "+",
       color: "from-indigo-500 to-purple-500",

@@ -46,7 +46,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <Link href="#home" className="text-xl font-bold">
-              <span className="gradient-text">Dev</span>Portfolio
+              <span className="gradient-text">Sandeep </span> Kumar Chaurasiya
             </Link>
             <p className="mt-2 text-gray-400 max-w-md">
               Full-stack MERN developer passionate about creating innovative web solutions.

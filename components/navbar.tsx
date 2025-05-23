@@ -51,7 +51,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
           >
             <Link href="#home" className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <span className="gradient-text">Dev</span>Portfolio
+              <span className="gradient-text">Sandeep </span>Kumar Chaurasiya
             </Link>
           </motion.div>
 
