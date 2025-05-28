@@ -1,7 +1,6 @@
 "use client"
 
-import type React from "react"
-import { useState, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, Check } from "lucide-react"
 import emailjs from "@emailjs/browser"
+// import ReCAPTCHA from "react-google-recaptcha"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,7 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const controls = useAnimation()
 
@@ -27,14 +28,18 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleCaptcha = (token: string | null) => {
+    setCaptchaToken(token)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const serviceID = "service_abc123"
+      const serviceID = "service_37dbk07"
       const templateID = "template_xhasdze"
-      const publicKey = "EgBxUGJxHQ7RPBic_"
+      const publicKey = "By3Jo8EvuxZrqCIct"
 
       await emailjs.send(
         serviceID,
@@ -54,6 +59,8 @@ export default function Contact() {
       })
 
       setIsSubmitted(true)
+      alert("Your message has been sent! Thank you for reaching out.")
+
       setTimeout(() => {
         setFormData({
           name: "",
@@ -62,6 +69,7 @@ export default function Contact() {
           message: "",
         })
         setIsSubmitted(false)
+        setCaptchaToken(null)
       }, 3000)
     } catch (error) {
       alert("Failed to send message. Please try again later.")
@@ -198,6 +206,14 @@ export default function Contact() {
                   required
                   className="border-2 focus:border-primary/50 transition-colors"
                 />
+                <div className="flex justify-center">
+                  {/* 
+                  <ReCAPTCHA
+                    sitekey="6LeAbCdEfGhIjKlMnOpQrStUvWxYz1234567890"
+                    onChange={handleCaptcha}
+                  />
+                  */}
+                </div>
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 relative overflow-hidden group"
