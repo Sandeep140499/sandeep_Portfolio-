@@ -9,7 +9,7 @@ import PageTransition from "@/components/page-transition"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio | Full-Stack MERN Developer",
+  title: "Sandeep Kumar Chaurasiya",
   description: "Portfolio of a Full-Stack MERN Developer showcasing projects and skills",
     generator: 'v0.dev'
 }

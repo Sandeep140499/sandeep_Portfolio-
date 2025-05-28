@@ -28,7 +28,6 @@ export default function StatsCounter() {
       icon: <Briefcase className="h-8 w-8" />,
       value: 2,
       label: "Years Experience",
-      suffix: "+",
       color: "from-indigo-500 to-purple-500",
     },
     {
@@ -39,7 +38,7 @@ export default function StatsCounter() {
     },
     {
       icon: <Coffee className="h-8 w-8" />,
-      value: 1250,
+      value: 100,
       label: "Cups of Coffee",
       suffix: "+",
       color: "from-pink-500 to-red-500",

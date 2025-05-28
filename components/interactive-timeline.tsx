@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react"
@@ -24,40 +24,54 @@ export default function InteractiveTimeline() {
     organization: "KIBA Labs Private Limited",
     period: "Oct 2024 – Present",
     location: "Bengaluru, Karnataka, India",
-    description:
-      "✅ Full-Stack Development: Built the platform using React.js for the frontend and Node.js and Java for backend services.\n" +
-      "🔐 Role-Based & Subscription-Based Access Control: Implemented dynamic access controls tailored to different user roles and subscription tiers.\n" +
-      "🔒 User Authentication & Authorization: Ensured secure login and session management with proper authorization mechanisms based on user roles.\n" +
-      "⚙️ Error Handling & Response Management: Developed centralized error handling and consistent response strategies to boost system stability and user experience.\n" +
-      "🧾 CRUD Operations & Routing: Efficiently managed data operations and routing across the application for smooth user interactions.\n" +
-      "🧪 API Testing with Postman: Integrated and tested RESTful APIs using Postman to validate responses and ensure expected functionality across all endpoints.",
+    description: `
+• Designed and developed the Rent-a-Read platform from scratch, focusing on scalable architecture and seamless user experience.
+• Implemented robust role-based and subscription-based access controls for secure, tailored user journeys.
+• Managed user authentication and authorization, ensuring data privacy and secure access.
+• Performed CRUD operations, API integration, and comprehensive response validation.
+• Conducted centralized error handling to enhance application reliability and maintainability.
+    `,
     type: "work",
-    skills: ["React", "Node.js", "MongoDB", "Express.js", "RESTful APIs"]
+    skills: [
+      "React.js", "HTML", "CSS", "JavaScript", "Material-UI",
+      "Node.js", "Java", "MongoDB","Git",
+      "RESTful APIs", "Postman",  "AWS"
+    ]
   },
   {
     id: "job2",
     title: "MERN Stack Developer Intern",
-    organization: "Jithvar Consultancy Services",
+    organization: "JITHVAR Consultancy Services Pvt. Ltd.",
     period: "Oct 2023 – Apr 2024",
     location: "Lucknow, Uttar Pradesh, India",
-    description:
-      "🎨 Focused on building and maintaining frontend components using HTML, CSS, JavaScript, and React.\n" +
-      "🧩 Translated UI/UX designs into responsive and interactive web pages.\n" +
-      "🚀 Implemented reusable components and optimized rendering for performance.\n" +
-      "🐞 Identified and fixed UI bugs to improve user experience and design consistency.",
+    description: `
+• Focused on frontend development for CRM portals, rendering dynamic data via API integration.
+• Implemented routing, form validation, and dynamic table/image display.
+• Collaborated on building single-page applications (SPAs) and ensured robust user experience.
+    `,
     type: "work",
-    skills: ["HTML", "CSS", "JavaScript", "React"]
+    skills: [
+      "React.js", "JavaScript", "HTML", "CSS",
+      "Node.js", "MongoDB", "RESTful APIs", "Postman", "Git"
+    ]
   },
   {
     id: "job3",
-    title: "Frontend Developer",
-    organization: "Yaxa Digital Labs",
+    title: "Frontend Developer (JavaScript)",
+    organization: "YAXA Digital Labs Pvt. Ltd.",
     period: "Apr 2023 – Jul 2023",
     location: "Noida, Uttar Pradesh, India",
-    description:
-      "Completed more than 5 projects based on React, covering fundamentals of HTML, CSS, JavaScript, and Bootstrap. Developed Stripe-based backend integrations and managed image hosting using Ocean Cloud. Collaborated with designers using Figma to create responsive UI components and generated multiple websites from scratch.",
+    description: `
+• Developed static and dynamic websites using Next.js, focusing on smooth transitions, animations, and interactive hover effects.
+• Ensured responsive design and cross-device compatibility for both desktop and mobile platforms.
+• Translated Figma UI designs into functional, reusable React components.
+• Managed projects and codebases using GitHub and GitLab for version control.
+    `,
     type: "work",
-    skills: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "React", "Stripe", "Ocean Cloud", "Figma"]
+    skills: [
+      "HTML", "CSS", "JavaScript", "Next.js", "BooTstrap",
+      "Figma", "Git", "GitHub", "GitLab", "DigitalOcean", "Stripe", "Postman", "RESTful APIs"
+    ]
   },
   {
     id: "job4",
@@ -65,8 +79,10 @@ export default function InteractiveTimeline() {
     organization: "PrepBytes",
     period: "Apr 2022 – Feb 2023",
     location: "Remote",
-    description:
-      "Participated in a comprehensive bootcamp focused on full-stack development. Gained hands-on experience with the MERN stack and developed several projects.",
+    description: `
+• Participated in a comprehensive bootcamp focused on full-stack development.
+• Gained hands-on experience with the MERN stack and developed several projects.
+    `,
     type: "work",
     skills: ["React", "Node.js", "MongoDB", "Express.js", "JavaScript"]
   },
@@ -76,18 +92,21 @@ export default function InteractiveTimeline() {
     organization: "Dr. A.P.J. Abdul Kalam Technical University",
     period: "2016 – 2020",
     location: "Lucknow, Uttar Pradesh, India",
-    description:
-      "Completed a B.Tech in Electrical Engineering, gaining a strong foundation in core engineering principles and basic computer science knowledge. Graduated with honors, demonstrating consistent academic excellence.",
-    type: "education"
+    description: `
+Completed a B.Tech in Electrical Engineering, gaining a strong foundation in core engineering principles and basic computer science knowledge. Graduated with honors, demonstrating consistent academic excellence.
+    `,
+    type: "education",
+    skills: ["Electrical Engineering", "Problem Solving", "Academic Excellence"]
   },
   {
-    id: "edu4",
+    id: "edu2",
     title: "Secondary School Certificate",
     organization: "Akbarpur Ambedkar Nagar Secondary School",
     period: "2012 – 2014",
     location: "Akbarpur, Ambedkar Nagar, India",
     description: "",
-    type: "education"
+    type: "education",
+    skills: ["Science", "Mathematics"]
   },
   {
     id: "edu3",
@@ -96,7 +115,8 @@ export default function InteractiveTimeline() {
     period: "2014 – 2016",
     location: "Akbarpur, Ambedkar Nagar, India",
     description: "",
-    type: "education"
+    type: "education",
+    skills: ["Science", "Mathematics"]
   }
 ];
 
@@ -112,6 +132,15 @@ export default function InteractiveTimeline() {
       const bYear = Number.parseInt(b.period.split(" - ")[1] || b.period.split(" - ")[0])
       return bYear - aYear
     })
+
+  // Auto-expand first item on filter change
+  useEffect(() => {
+    if (filteredItems.length > 0) {
+      setActiveItem(filteredItems[0].id)
+    } else {
+      setActiveItem(null)
+    }
+  }, [filter])
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -221,10 +250,16 @@ export default function InteractiveTimeline() {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">{item.description}</p>
-
-                        {item.skills && (
-                          <div className="flex flex-wrap gap-2">
+                        <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                          {item.description
+                            .split("\n")
+                            .filter(line => line.trim().startsWith("•"))
+                            .map((line, idx) => (
+                              <li key={idx}>{line.replace(/^•\s*/, "")}</li>
+                            ))}
+                        </ul>
+                        {item.skills && item.skills.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mb-2">
                             {item.skills.map((skill, idx) => (
                               <Badge key={idx} variant="secondary">
                                 {skill}

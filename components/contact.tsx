@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, Check } from "lucide-react"
-import emailjs from "emailjs-com"
+import emailjs from "@emailjs/browser"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -32,10 +32,9 @@ export default function Contact() {
     setIsSubmitting(true)
 
     try {
-      // Replace these with your EmailJS service, template, and public key
       const serviceID = "service_abc123"
-      const templateID = "template_xyz456"
-      const publicKey = "8Pf1aXgN8p1234abc"
+      const templateID = "template_xhasdze"
+      const publicKey = "EgBxUGJxHQ7RPBic_"
 
       await emailjs.send(
         serviceID,
@@ -46,7 +45,7 @@ export default function Contact() {
           subject: formData.subject,
           message: formData.message,
         },
-        publicKey // <-- use publicKey here
+        publicKey
       )
 
       controls.start({
