@@ -17,74 +17,89 @@ interface TimelineItem {
 }
 
 export default function InteractiveTimeline() {
-  const timelineItems: TimelineItem[] = [
-    {
-      id: "job1",
-      title: "Associate Software Engineer",
-      organization: "KIBA Labs",
-      period: "Oct 2024 - Present",
-      location: "San Francisco, CA",
-      description:
-        "Working as an Associate Software Engineer, developing and maintaining web applications using the MERN stack. Collaborating with cross-functional teams to deliver high-quality software solutions.",
-      type: "work",
-      skills: ["React", "Node.js", "MongoDB", "Express.js", "RESTful APIs"],
-    },
-    {
-      id: "job2",
-      title: "MERN Stack Developer Intern",
-      organization: "Jithvar Consultancy Services",
-      period: "Oct 2023 - Apr 2024",
-      location: "Remote",
-      description:
-        "Worked with frontend and backend technologies, including APIs, Express.js, and MongoDB. Developed and maintained web applications, implemented new features, and fixed bugs.",
-      type: "work",
-      skills: ["React", "Node.js", "MongoDB", "Express.js", "RESTful APIs"],
-    },
-    {
-      id: "edu1",
-      title: "Bachelor of Science in Computer Science",
-      organization: "University of Technology",
-      period: "2018 - 2022",
-      location: "Boston, MA",
-      description:
-        "Studied core computer science subjects including data structures, algorithms, database management, and software engineering. Graduated with honors.",
-      type: "education",
-      skills: ["Data Structures & Algorithms", "Database Systems", "Web Development", "Software Engineering"],
-    },
-    {
-      id: "job3",
-      title: "Frontend Developer",
-      organization: "Yaxa Digital Labs",
-      period: "Apr 2023 - Jul 2023",
-      location: "Chicago, IL",
-      description:
-        "Developed a dynamic website for Gruner Renewable Energy using modern frontend technologies. Collaborated with designers to implement responsive UI components.",
-      type: "work",
-      skills: ["HTML5", "CSS3", "JavaScript", "Figma"],
-    },
-    {
-      id: "edu2",
-      title: "MERN Stack Development Bootcamp",
-      organization: "PrepBytes",
-      period: "Apr 2022 - Feb 2023",
-      location: "Online",
-      description:
-        "Intensive bootcamp focused on full-stack web development using the MERN stack. Completed several projects and gained hands-on experience.",
-      type: "education",
-      skills: ["React.js", "Node.js", "Express.js", "MongoDB", "RESTful API Development"],
-    },
-    {
-      id: "job4",
-      title: "Full Stack MERN Developer Intern",
-      organization: "PrepBytes",
-      period: "Apr 2022 - Feb 2023",
-      location: "Remote",
-      description:
-        "Participated in a comprehensive bootcamp focused on full-stack development. Gained hands-on experience with the MERN stack and developed several projects.",
-      type: "work",
-      skills: ["React", "Node.js", "MongoDB", "Express.js", "JavaScript"],
-    },
-  ]
+ const timelineItems: TimelineItem[] = [
+  {
+    id: "job1",
+    title: "Associate Software Engineer",
+    organization: "KIBA Labs Private Limited",
+    period: "Oct 2024 – Present",
+    location: "Bengaluru, Karnataka, India",
+    description:
+      "✅ Full-Stack Development: Built the platform using React.js for the frontend and Node.js and Java for backend services.\n" +
+      "🔐 Role-Based & Subscription-Based Access Control: Implemented dynamic access controls tailored to different user roles and subscription tiers.\n" +
+      "🔒 User Authentication & Authorization: Ensured secure login and session management with proper authorization mechanisms based on user roles.\n" +
+      "⚙️ Error Handling & Response Management: Developed centralized error handling and consistent response strategies to boost system stability and user experience.\n" +
+      "🧾 CRUD Operations & Routing: Efficiently managed data operations and routing across the application for smooth user interactions.\n" +
+      "🧪 API Testing with Postman: Integrated and tested RESTful APIs using Postman to validate responses and ensure expected functionality across all endpoints.",
+    type: "work",
+    skills: ["React", "Node.js", "MongoDB", "Express.js", "RESTful APIs"]
+  },
+  {
+    id: "job2",
+    title: "MERN Stack Developer Intern",
+    organization: "Jithvar Consultancy Services",
+    period: "Oct 2023 – Apr 2024",
+    location: "Lucknow, Uttar Pradesh, India",
+    description:
+      "🎨 Focused on building and maintaining frontend components using HTML, CSS, JavaScript, and React.\n" +
+      "🧩 Translated UI/UX designs into responsive and interactive web pages.\n" +
+      "🚀 Implemented reusable components and optimized rendering for performance.\n" +
+      "🐞 Identified and fixed UI bugs to improve user experience and design consistency.",
+    type: "work",
+    skills: ["HTML", "CSS", "JavaScript", "React"]
+  },
+  {
+    id: "job3",
+    title: "Frontend Developer",
+    organization: "Yaxa Digital Labs",
+    period: "Apr 2023 – Jul 2023",
+    location: "Noida, Uttar Pradesh, India",
+    description:
+      "Completed more than 5 projects based on React, covering fundamentals of HTML, CSS, JavaScript, and Bootstrap. Developed Stripe-based backend integrations and managed image hosting using Ocean Cloud. Collaborated with designers using Figma to create responsive UI components and generated multiple websites from scratch.",
+    type: "work",
+    skills: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "React", "Stripe", "Ocean Cloud", "Figma"]
+  },
+  {
+    id: "job4",
+    title: "Full Stack MERN Developer Intern",
+    organization: "PrepBytes",
+    period: "Apr 2022 – Feb 2023",
+    location: "Remote",
+    description:
+      "Participated in a comprehensive bootcamp focused on full-stack development. Gained hands-on experience with the MERN stack and developed several projects.",
+    type: "work",
+    skills: ["React", "Node.js", "MongoDB", "Express.js", "JavaScript"]
+  },
+  {
+    id: "edu1",
+    title: "B.Tech in Electrical Engineering",
+    organization: "Dr. A.P.J. Abdul Kalam Technical University",
+    period: "2016 – 2020",
+    location: "Lucknow, Uttar Pradesh, India",
+    description:
+      "Completed a B.Tech in Electrical Engineering, gaining a strong foundation in core engineering principles and basic computer science knowledge. Graduated with honors, demonstrating consistent academic excellence.",
+    type: "education"
+  },
+  {
+    id: "edu4",
+    title: "Secondary School Certificate",
+    organization: "Akbarpur Ambedkar Nagar Secondary School",
+    period: "2012 – 2014",
+    location: "Akbarpur, Ambedkar Nagar, India",
+    description: "",
+    type: "education"
+  },
+  {
+    id: "edu3",
+    title: "High School Diploma",
+    organization: "Akbarpur Ambedkar Nagar High School",
+    period: "2014 – 2016",
+    location: "Akbarpur, Ambedkar Nagar, India",
+    description: "",
+    type: "education"
+  }
+];
+
 
   const [filter, setFilter] = useState<"all" | "work" | "education">("all")
   const [activeItem, setActiveItem] = useState<string | null>(null)

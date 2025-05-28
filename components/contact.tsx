@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useRef } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -9,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Send, Check } from "lucide-react"
+import emailjs from "emailjs-com"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -31,51 +31,67 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      // Replace these with your EmailJS service, template, and public key
+      const serviceID = "service_abc123"
+      const templateID = "template_xyz456"
+      const publicKey = "8Pf1aXgN8p1234abc"
 
-    // Success animation
-    controls.start({
-      scale: [1, 1.05, 1],
-      transition: { duration: 0.5 },
-    })
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey // <-- use publicKey here
+      )
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Reset form after delay
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+      controls.start({
+        scale: [1, 1.05, 1],
+        transition: { duration: 0.5 },
       })
-      setIsSubmitted(false)
-    }, 3000)
+
+      setIsSubmitted(true)
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+        setIsSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      alert("Failed to send message. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-white" />,
       title: "Email",
-      value: "contact@example.com",
+      value: "sandeep140499kumar@gmail.com",
       color: "from-blue-500 to-indigo-500",
-      link: "mailto:contact@example.com",
+      link: "mailto:sandeep140499kumar@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-white" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+91 7737505602",
       color: "from-indigo-500 to-purple-500",
-      link: "tel:+15551234567",
+      link: "tel:+917737505602",
     },
     {
       icon: <MapPin className="h-6 w-6 text-white" />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Uttar Pradesh",
       color: "from-purple-500 to-pink-500",
-      link: "https://maps.google.com/?q=San+Francisco,+CA",
+      link: "https://maps.google.com/?q=Uttar+Pradesh",
     },
   ]
 
@@ -120,20 +136,6 @@ export default function Contact() {
             </motion.a>
           ))}
         </div>
-
-        <motion.div
-          className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-primary/10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h4 className="font-bold text-lg mb-2">Available for Freelance</h4>
-          <p className="text-gray-600 dark:text-gray-300">
-            I'm currently available for freelance work. If you have a project that needs some creative touch, I'd love
-            to hear about it.
-          </p>
-        </motion.div>
       </motion.div>
 
       <motion.div
@@ -163,116 +165,79 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  viewport={{ once: true }}
+                <Input
+                  placeholder="Your Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="border-2 focus:border-primary/50 transition-colors"
+                />
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="border-2 focus:border-primary/50 transition-colors"
+                />
+                <Input
+                  placeholder="Subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="border-2 focus:border-primary/50 transition-colors"
+                />
+                <Textarea
+                  placeholder="Your Message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={5}
+                  required
+                  className="border-2 focus:border-primary/50 transition-colors"
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 relative overflow-hidden group"
+                  disabled={isSubmitting}
                 >
-                  <Input
-                    placeholder="Your Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="border-2 focus:border-primary/50 transition-colors"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="border-2 focus:border-primary/50 transition-colors"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <Input
-                    placeholder="Subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="border-2 focus:border-primary/50 transition-colors"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <Textarea
-                    placeholder="Your Message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    required
-                    className="border-2 focus:border-primary/50 transition-colors"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 relative overflow-hidden group"
-                    disabled={isSubmitting}
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      {isSubmitting ? (
-                        <>
-                          <svg
-                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="h-4 w-4 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </span>
-                    <span className="absolute bottom-0 left-0 h-1 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  </Button>
-                </motion.div>
+                  <span className="relative z-10 flex items-center justify-center">
+                    {isSubmitting ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </span>
+                  <span className="absolute bottom-0 left-0 h-1 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Button>
               </form>
             )}
           </CardContent>

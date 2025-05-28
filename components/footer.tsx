@@ -62,7 +62,7 @@ export default function Footer() {
           >
             <div className="flex space-x-4 mb-4">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/Sandeep140499"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
@@ -73,7 +73,7 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
@@ -84,7 +84,7 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </motion.a>
               <motion.a
-                href="mailto:contact@example.com"
+                href="mailto:sandeep140499kumar@gmail.com"
                 className="text-gray-400 hover:text-primary transition-colors"
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
@@ -93,7 +93,7 @@ export default function Footer() {
                 <span className="sr-only">Email</span>
               </motion.a>
             </div>
-            <p className="text-gray-400 text-sm">&copy; {currentYear} John Doe. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">&copy; {currentYear} Sandeep Kumar Chaurasiya. All rights reserved.</p>
           </motion.div>
         </div>
 

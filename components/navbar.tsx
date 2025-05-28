@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Sun, Moon } from "lucide-react"
@@ -26,8 +25,8 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
     { name: "Education", href: "#education" },
+    { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ]
 
